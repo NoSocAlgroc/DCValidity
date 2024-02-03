@@ -78,23 +78,24 @@ public class DenialConstraint {
     }
 
 
-    public static final String NOT = "\u00AC";
-    public static final String AND = " ∧ ";
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(NOT + "{ ");
-        int count = 0;
-        for (Predicate predicate : this.predicateSet) {
-            if (count == 0)
-                sb.append(predicate.toString());
-            else
-                sb.append(AND + predicate.toString());
-
-            count++;
-        }
-        sb.append(" }");
-        return sb.toString();
+	public static final String NOT = "\u00AC";
+	public static final String AND = "∧";
+	public String toString() {
+		StringBuffer s = new StringBuffer();
+		//s.append(NOT+"("+getPredicate(0).toString());
+		s.append(NOT+"(");
+		int count = 0;
+		for (Predicate predicate : this.predicateSet) {
+			//s.append(AND+predicate.toString());
+			if(count == 0){
+				s.append(predicate.toString());
+			}
+			else{
+				s.append(AND+predicate.toString());
+			}
+			count++;
+		}
+		return s.toString();
     }
 
 }

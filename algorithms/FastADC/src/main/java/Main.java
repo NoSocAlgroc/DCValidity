@@ -9,9 +9,9 @@ import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
 public class Main {
 
     public static void main(String[] args) {
-        String fp = "./dataset/hospital.csv";
-        double threshold = 0.001d;
-        int rowLimit = -1;              // limit the number of tuples in dataset, -1 means no limit
+        String fp = args[0];
+        double threshold = Double.parseDouble(args[1]);
+        int rowLimit = Integer.parseInt(args[2]);
         int shardLength = 350;
         boolean linear = false;         // linear single-thread in EvidenceSetBuilder
         boolean singleColumn = true;   // only single-attribute predicates
