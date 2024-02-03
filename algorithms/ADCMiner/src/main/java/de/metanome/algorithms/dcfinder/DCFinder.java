@@ -2,6 +2,7 @@ package de.metanome.algorithms.dcfinder;
 
 
 import approxcover.ApproxDCBuilder;
+import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
 import de.metanome.algorithms.dcfinder.evidenceset.TroveEvidenceSet;
 import de.metanome.algorithms.dcfinder.evidenceset.builders.SplitReconstructEvidenceSetBuilder;
 import de.metanome.algorithms.dcfinder.input.Input;
@@ -29,7 +30,7 @@ public class DCFinder {
         singleColumn = _singleColumn;
     }
 
-    public void run(String fp, int rowLimit) {
+    public DenialConstraintSet run(String fp, int rowLimit) {
         dataFp = fp;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("INPUT FILE: " + fp);
@@ -62,11 +63,12 @@ public class DCFinder {
         System.out.println(" [ADC t0] " + sdf.format(System.currentTimeMillis()));
         long t30 = System.currentTimeMillis();
         ApproxDCBuilder coverSearcher = new ApproxDCBuilder(satisfactionThreshold, pBuilder);
-        coverSearcher.buildApproxDCs(evidenceSet);
+        DenialConstraintSet dcs = coverSearcher.buildApproxDCs(evidenceSet);
         long t_adc_ivs = System.currentTimeMillis() - t30;
         System.out.println("[ADC] inversion time: " + t_adc_ivs + "ms\n");
 
         System.out.println("[ADC] Total computing time: " + (t_pre + t_evi + t_adc_ivs) + " ms");
+        return dcs;
     }
 
     private void setViolationsThreshold(long totalCount) {
