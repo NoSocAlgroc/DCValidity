@@ -9,10 +9,11 @@ import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
 public class Main  {
 
     public static void main(String[] args) {
-        String fp = "./datasets/airport.csv";
-        double threshold = 0.01d;
-        boolean singleColumn = false;
-        int rowLimit = 10000;
+        String fp = args[0];
+        double threshold = Double.parseDouble(args[1]);
+        int rowLimit = Integer.parseInt(args[2]);       
+        boolean singleColumn = true;
+
 
         DCFinder dcfinder = new DCFinder(threshold, singleColumn);
         DenialConstraintSet dcs=dcfinder.run(fp, rowLimit);
