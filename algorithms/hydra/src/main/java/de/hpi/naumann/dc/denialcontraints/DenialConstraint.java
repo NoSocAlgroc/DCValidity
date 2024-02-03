@@ -132,7 +132,7 @@ public class DenialConstraint {
 			++i;
 		}
 
-		return new de.metanome.algorithm_integration.results.DenialConstraint(predicates);
+		return new de.metanome.algorithm_integration.results.DenialConstraint(predicates,0,0,0,0,0,0);
 	}
 
 }

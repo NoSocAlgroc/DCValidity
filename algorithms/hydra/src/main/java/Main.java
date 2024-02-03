@@ -3,24 +3,24 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import de.metanome.algorithms.dcfinder.DCFinder;
-import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraint;
-import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
-import de.metanome.algorithms.dcfinder.input.DefaultFileInputGenerator;
-import de.metanome.algorithms.dcfinder.input.Input;
-import de.metanome.algorithms.dcfinder.predicates.PredicateBuilder;
+import de.hpi.naumann.dc.algorithms.hybrid.Hydra;
+import de.hpi.naumann.dc.denialcontraints.DenialConstraint;
+import de.hpi.naumann.dc.denialcontraints.DenialConstraintSet;
+import de.hpi.naumann.dc.input.DefaultFileInputGenerator;
+import de.hpi.naumann.dc.input.Input;
+import de.hpi.naumann.dc.predicates.PredicateBuilder;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
         String fp = "./datasets/Hospital.csv";
         double threshold = 0.01d;
-        int rowLimit = 10000;              // limit the number of tuples in dataset, -1 means no limit
+        int rowLimit = 20000;              // limit the number of tuples in dataset, -1 means no limit
         int shardLength = 350;
         boolean linear = false;         // linear single-thread in EvidenceSetBuilder
         boolean singleColumn = true;   // only single-attribute predicates
         
-        DCFinder fastADC = new DCFinder();
+        Hydra fastADC = new Hydra();
         File f=new File(fp);
         DefaultFileInputGenerator fgen=new DefaultFileInputGenerator(f);
         Input input = new Input(fgen.generateNewCopy(), rowLimit);
