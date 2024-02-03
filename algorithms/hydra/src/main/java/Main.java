@@ -13,12 +13,9 @@ import de.hpi.naumann.dc.predicates.PredicateBuilder;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        String fp = "./datasets/Hospital.csv";
-        double threshold = 0.01d;
-        int rowLimit = 20000;              // limit the number of tuples in dataset, -1 means no limit
-        int shardLength = 350;
-        boolean linear = false;         // linear single-thread in EvidenceSetBuilder
-        boolean singleColumn = true;   // only single-attribute predicates
+        String fp = args[0];
+        double threshold = Double.parseDouble(args[1]);//Unused for hydra
+        int rowLimit = Integer.parseInt(args[2]);       
         
         Hydra fastADC = new Hydra();
         File f=new File(fp);
