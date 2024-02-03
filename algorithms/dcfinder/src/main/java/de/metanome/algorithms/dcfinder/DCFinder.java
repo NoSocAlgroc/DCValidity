@@ -17,8 +17,8 @@ public class DCFinder {
 	protected long violationsThreshold = 0L;
 	protected long rsize = 0;
 
-	public DenialConstraintSet run(Input input, PredicateBuilder predicates) {
-
+	public DenialConstraintSet run(Input input, PredicateBuilder predicates, double approx) {
+		errorThreshold=approx;
 		input.buildPLIs();
 		rsize = input.getLineCount();
 		

@@ -13,19 +13,17 @@ import de.metanome.algorithms.dcfinder.predicates.PredicateBuilder;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        String fp = "./datasets/Hospital.csv";
-        double threshold = 0.01d;
-        int rowLimit = 10000;              // limit the number of tuples in dataset, -1 means no limit
-        int shardLength = 350;
-        boolean linear = false;         // linear single-thread in EvidenceSetBuilder
-        boolean singleColumn = true;   // only single-attribute predicates
+        String fp = args[0];
+        double threshold = Double.parseDouble(args[1]);
+        int rowLimit = Integer.parseInt(args[2]);              // limit the number of tuples in dataset, -1 means no limit
+
         
-        DCFinder fastADC = new DCFinder();
+        DCFinder dcFinder = new DCFinder();
         File f=new File(fp);
         DefaultFileInputGenerator fgen=new DefaultFileInputGenerator(f);
         Input input = new Input(fgen.generateNewCopy(), rowLimit);
         PredicateBuilder predicateBuilder = new PredicateBuilder(input,true, 0.3d);
-        DenialConstraintSet dcs = fastADC.run(input, predicateBuilder);
+        DenialConstraintSet dcs = dcFinder.run(input, predicateBuilder,threshold);
         System.out.println();
         fgen.close();
 
