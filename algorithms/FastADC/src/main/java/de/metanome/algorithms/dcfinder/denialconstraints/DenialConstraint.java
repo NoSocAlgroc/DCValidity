@@ -78,8 +78,8 @@ public class DenialConstraint {
     }
 
 
-	public static final String NOT = "\u00AC";
-	public static final String AND = "∧";
+    public static final String NOT = "\u00AC";
+    public static final String AND = "^";
 	public String toString() {
 		StringBuffer s = new StringBuffer();
 		//s.append(NOT+"("+getPredicate(0).toString());
@@ -95,6 +95,7 @@ public class DenialConstraint {
 			}
 			count++;
 		}
+        s.append(')');
 		return s.toString();
     }
 

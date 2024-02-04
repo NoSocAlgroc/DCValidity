@@ -102,7 +102,7 @@ public class Predicate implements PartitionRefiner {
 //		return "[Predicate: " + operand1.toString() + " " + op.getShortString() + " " + operand2.toString() + "]";
 //	}
 	public String toString() {
-		return " " + operand1.toString() + " " + op.getShortString() + " " + operand2.toString() + "";
+		return "" + operand1.toString() + " " + op.getShortString() + " " + operand2.toString() + "";
 	}
 
 	@Override
