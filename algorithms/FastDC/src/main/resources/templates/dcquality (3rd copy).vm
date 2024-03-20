@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <title>
+            Report ID: $reportID
+        </title>
+
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+ 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  		
+
+        <style type="text/css">
+
+        .test-result-table {
+
+            border: 1px solid black;
+            
+        }
+
+        .header-cell {
+
+            border-bottom: 1px solid black;
+            background-color: silver;
+        }
+
+        .simple-cell {
+
+            border-bottom: 1px solid gray;
+        }
+
+        
+
+        .test-cast-status-box-ok {
+            border: 1px solid black;
+            float: left;
+            margin-right: 10px;
+            width: 45px;
+            height: 25px;
+            background-color: green;
+        }
+
+        tr:nth-child(even) {background: #F5F5F5}
+
+        th, td {
+        		 padding: 15px;
+    			text-align: left;
+		}
+        
+
+        </style>
+    </head>
+    <body class="w3-container">
+    	
+	        <h1 class="test-results-header">
+	            Report ID: $reportID
+	        </h1>
+
+	        <h2>Configurations</h2>
+	        <table  class=" test-result-table" cellspacing="10" cellpadding="10">
+	            <thead>
+	                <tr class="header-cell">
+	                    <td>Dataset</td>
+	                    <td>#cols</td>
+	                    <td>#records</td>
+	                    <td>#dcs</td>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr class=".simple-cell">
+	                    <td>$dataset</td>
+	                    <td align="right">$numcols</td>
+	                    <td align="right">$numrecords</td>
+	                    <td align="right">$numdcs</td>
+	                </tr>
+	                
+	             
+	            </tbody>
+	        </table>
+
+	        <!--h2>Business rules</h2-->
+	        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#brulestable">Business Rules</button>
+ 			<div id="brulestable" class="collapse">
+		        <table id="brTable" class="ui-responsive"  data-role="table" data-mode="columntoggle" cellspacing="6" cellpadding="6">
+		            
+		             <thead>
+		                <tr class="header-cell">
+		                    <th data-priority="8">#</th>
+		                    <th data-priority="7">DC</th>
+		                    <th data-priority="6">Inter</th>
+		                    <th data-priority="5">Succ</th>
+		                    <th data-priority="4">Cover</th>
+		                    <th data-priority="3">Level 1</th>
+		                    <th data-priority="2">Level 2</th>
+		                    <th data-priority="1">Level 3</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                #foreach($dc in $brules)
+		                <tr class=".simple-cell">
+		                    <td>$foreach.count</td>
+		                    <td>$dc</td>
+		                    <td>$dc.getFeatures().getFeature("Inter")</td>
+		                    <td>$dc.getFeatures().getFeature("Succ")</td>
+		                    <td>$dc.getFeatures().getFeature("Cover")</td>
+		                    <td>$dc.getFeatures().getFeature("Level1")</td>
+		                    <td>$dc.getFeatures().getFeature("Level2")</td>
+		                    <td>$dc.getFeatures().getFeature("Level3")</td>
+		                </tr>
+		                #end
+		             
+		            </tbody>
+		        </table>
+		    </div>    
+
+	        
+	        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#uccstable">UCCs</button>
+ 			<div id="uccstable" class="collapse">
+		        <table id="uccTable" class="ui-responsive"  data-role="table" data-mode="columntoggle" cellspacing="6" cellpadding="6">
+		            <thead>
+		                <tr class="header-cell">
+		                    <th data-priority="8">#</th>
+		                    <th data-priority="7">DC</th>
+		                    <th data-priority="6">Inter</th>
+		                    <th data-priority="5">Succ</th>
+		                    <th data-priority="4">Cover</th>
+		                    <th data-priority="3">Level 1</th>
+		                    <th data-priority="2">Level 2</th>
+		                    <th data-priority="1">Level 3</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                #foreach($dc in $uccs)
+		                <tr class=".simple-cell">
+		                    <td>$foreach.count</td>
+		                    <td>$dc</td>
+		                    <td>$dc.getFeatures().getFeature("Inter")</td>
+		                    <td>$dc.getFeatures().getFeature("Succ")</td>
+		                    <td>$dc.getFeatures().getFeature("Cover")</td>
+		                    <td>$dc.getFeatures().getFeature("Level1")</td>
+		                    <td>$dc.getFeatures().getFeature("Level2")</td>
+		                    <td>$dc.getFeatures().getFeature("Level3")</td>
+		                </tr>
+		                #end
+		             
+		            </tbody>
+		        </table>
+	        </div>    
+
+	        
+	        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fdstable">FDs</button>
+ 			<div id="fdstable" class="collapse">
+		        <table id="fdTable" class="ui-responsive"  data-role="table" data-mode="columntoggle" cellspacing="6" cellpadding="6">
+		            <thead>
+		                <tr class="header-cell">
+		                    <th data-priority="8">#</th>
+		                    <th data-priority="7">DC</th>
+		                    <th data-priority="6">Inter</th>
+		                    <th data-priority="5">Succ</th>
+		                    <th data-priority="4">Cover</th>
+		                    <th data-priority="3">Level 1</th>
+		                    <th data-priority="2">Level 2</th>
+		                    <th data-priority="1">Level 3</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		                #foreach($dc in $fds)
+		                <tr class=".simple-cell">
+		                    <td>$foreach.count</td>
+		                    <td>$dc</td>
+		                    <td>$dc.getFeatures().getFeature("Inter")</td>
+		                    <td>$dc.getFeatures().getFeature("Succ")</td>
+		                    <td>$dc.getFeatures().getFeature("Cover")</td>
+		                    <td>$dc.getFeatures().getFeature("Level1")</td>
+		                    <td>$dc.getFeatures().getFeature("Level2")</td>
+		                    <td>$dc.getFeatures().getFeature("Level3")</td>
+		                </tr>
+		                #end
+		             
+		            </tbody>
+		        </table>
+	        </div> 
+        
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>
+            Report ID: $reportID
+        </title>
+        <style type="text/css">
+
+        .test-result-table {
+
+            border: 1px solid black;
+            
+        }
+
+        .header-cell {
+
+            border-bottom: 1px solid black;
+            background-color: silver;
+        }
+
+        .simple-cell {
+
+            border-bottom: 1px solid gray;
+        }
+
+        
+
+        .test-cast-status-box-ok {
+            border: 1px solid black;
+            float: left;
+            margin-right: 10px;
+            width: 45px;
+            height: 25px;
+            background-color: green;
+        }
+
+        tr:nth-child(even) {background: #F5F5F5}
+        
+
+        </style>
+    </head>
+    <body>
+        <h1 class="test-results-header">
+            Report ID: $reportID
+        </h1>
+
+        <table class="test-result-table" cellspacing="0" cellpadding="10">
+            <thead>
+                <tr class="header-cell">
+                    <td>Dataset</td>
+                    <td>#cols</td>
+                    <td>#records</td>
+                    <td>#dcs</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class=".simple-cell">
+                    <td>$dataset</td>
+                    <td align="right">$numcols</td>
+                    <td align="right">$numrecords</td>
+                    <td align="right">$numdcs</td>
+                </tr>
+                
+             
+            </tbody>
+        </table>
+
+        <h2>Discovered DCs</h2>
+
+        <table class="test-result-table" cellspacing="6">
+            <thead>
+                <tr class="header-cell">
+                    <td>#</td>
+                    <td>DC</td>
+                    <td>Inter</td>
+                    <td>Succ</td>
+                    <td>Cover</td>
+                </tr>
+            </thead>
+            <tbody>
+                #foreach($dc in $dcs)
+                <tr class=".simple-cell">
+                    <td>$foreach.count</td>
+                    <td>$dc</td>
+                    <td>$dc.getFeatures().getFeature("Inter")</td>
+                    <td>$dc.getFeatures().getFeature("Succ")</td>
+                    <td>$dc.getFeatures().getFeature("Cover")</td>
+                </tr>
+                #end
+             
+            </tbody>
+        </table>
+    </body>
+</html>

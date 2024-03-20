@@ -1,0 +1,11 @@
+class,dc,qtdP,interestness,succinct,cover,predMult,l1,l2,l3,l4
+#foreach($dc in $fds)
+FD,$dc,$dc.getPredicateCount(),$dc.getFeatures().getFeature("Inter"),$dc.getFeatures().getFeature("Succ"),$dc.getFeatures().getFeature("Cover"),$dc.getFeatures().getFeature("Predicate"),$dc.getFeatures().getFeature("Level1"),$dc.getFeatures().getFeature("Level2"),$dc.getFeatures().getFeature("Level3"),$dc.getFeatures().getFeature("Level4")
+#end
+#foreach($dc in $uccs)
+UCC,$dc,$dc.getPredicateCount(),$dc.getFeatures().getFeature("Inter"),$dc.getFeatures().getFeature("Succ"),$dc.getFeatures().getFeature("Cover"),$dc.getFeatures().getFeature("Predicate"),$dc.getFeatures().getFeature("Level1"),$dc.getFeatures().getFeature("Level2"),$dc.getFeatures().getFeature("Level3"),$dc.getFeatures().getFeature("Level4")
+#end
+#foreach($dc in $brules)
+BR,$dc,$dc.getPredicateCount(),$dc.getFeatures().getFeature("Inter"),$dc.getFeatures().getFeature("Succ"),$dc.getFeatures().getFeature("Cover"),$dc.getFeatures().getFeature("Predicate"),$dc.getFeatures().getFeature("Level1"),$dc.getFeatures().getFeature("Level2"),$dc.getFeatures().getFeature("Level3"),$dc.getFeatures().getFeature("Level4")
+#end
+	            
