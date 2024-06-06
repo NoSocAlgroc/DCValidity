@@ -10,6 +10,8 @@ import ch.javasoft.bitset.IBitSet;
 
 public class NTreeSearch implements ISubsetBackend, ITreeSearch {
 	public static long counter=0;
+	public static long counterOps=0;
+
 	private HashMap<Integer, NTreeSearch> subtrees = new HashMap<>();
 	private IBitSet bitset;
 
@@ -55,6 +57,7 @@ public class NTreeSearch implements ISubsetBackend, ITreeSearch {
 
 		int nextBit = invalidFD.nextSetBit(next);
 		while (nextBit >= 0) {
+			counterOps+=1;
 			NTreeSearch subTree = subtrees.get(Integer.valueOf(nextBit));
 			if (subTree != null)
 				if (subTree.getAndRemoveGeneralizations(invalidFD, nextBit + 1, removed))

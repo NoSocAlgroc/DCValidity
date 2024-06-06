@@ -26,6 +26,7 @@ public class Main {
         DenialConstraintSet dcs = fastADC.run(input, predicateBuilder);
         System.out.println();
         System.out.println("Nodes visited: "+Long.toString(NTreeSearch.counter));
+        System.out.println("EviSet reads: "+Long.toString(NTreeSearch.counterOps));
 
         fgen.close();
 
