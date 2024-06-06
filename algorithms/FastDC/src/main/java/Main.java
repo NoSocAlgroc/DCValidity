@@ -27,6 +27,8 @@ public class Main {
         DenialConstraintSet dcs = fastADC.run(input, predicateBuilder);
         System.out.println();
         System.out.println("Nodes visited: "+Long.toString(MinimalCoverCandidate.counter));
+        System.out.println("EviSet reads: "+Long.toString(MinimalCoverCandidate.counterOps));
+
         fgen.close();
 
         // Specify the file path
