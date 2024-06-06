@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 import ch.javasoft.bitset.IBitSet;
 
 public class NTreeSearch implements ISubsetBackend, ITreeSearch {
-
+	public static long counter=0;
 	private HashMap<Integer, NTreeSearch> subtrees = new HashMap<>();
 	private IBitSet bitset;
 
@@ -22,6 +22,7 @@ public class NTreeSearch implements ISubsetBackend, ITreeSearch {
 	@Override
 	public boolean add(IBitSet bs) {
 		add(bs, 0);
+		counter+=1;
 		return true;
 	}
 

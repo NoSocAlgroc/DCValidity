@@ -10,6 +10,7 @@ import de.hpi.naumann.dc.input.DefaultFileInputGenerator;
 import de.hpi.naumann.dc.input.Input;
 import de.hpi.naumann.dc.predicates.PredicateBuilder;
 
+import ch.javasoft.bitset.search.NTreeSearch;
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -24,6 +25,8 @@ public class Main {
         PredicateBuilder predicateBuilder = new PredicateBuilder(input,true, 0.3d);
         DenialConstraintSet dcs = fastADC.run(input, predicateBuilder);
         System.out.println();
+        System.out.println("Nodes visited: "+Long.toString(NTreeSearch.counter));
+
         fgen.close();
 
         // Specify the file path
