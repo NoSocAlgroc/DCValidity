@@ -9,9 +9,10 @@ import de.hpi.naumann.dc.denialcontraints.DenialConstraintSet;
 import de.hpi.naumann.dc.input.DefaultFileInputGenerator;
 import de.hpi.naumann.dc.input.Input;
 import de.hpi.naumann.dc.predicates.PredicateBuilder;
-
+import de.hpi.naumann.dc.cover.MinimalCoverCandidate;
 
 public class Main {
+
 
     public static void main(String[] args) throws Exception {
         String fp = args[0];
@@ -25,6 +26,7 @@ public class Main {
         PredicateBuilder predicateBuilder = new PredicateBuilder(input);
         DenialConstraintSet dcs = fastADC.run(input, predicateBuilder);
         System.out.println();
+        System.out.println("Nodes visited: "+Long.toString(MinimalCoverCandidate.counter));
         fgen.close();
 
         // Specify the file path

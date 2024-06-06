@@ -21,8 +21,9 @@ import de.hpi.naumann.dc.predicates.sets.IPredicateSetBinary;
 import de.hpi.naumann.dc.predicates.sets.PredicateBitSet;
 import de.hpi.naumann.dc.predicates.sets.PredicateSetFactory;
 
-public class MinimalCoverCandidate {
 
+public class MinimalCoverCandidate {
+	public static long counter=0;
 	final IEvidenceSet evidenceSet;
 	final Collection<Predicate> addablePredicates;
 	final Closure closure;
@@ -54,7 +55,7 @@ public class MinimalCoverCandidate {
 //			counter += evidenceSet.getCount(ps2);
 //		}
 		
-
+		counter+=1;
 		if(evidenceSet.isEmpty()) {
 //		if (counter <= 3) {
 			mC.add(translator.bitsetTransform(current.getBitset()));
