@@ -21,7 +21,7 @@ import de.metanome.algorithms.dcfinder.predicates.sets.PredicateSet;
 import de.metanome.algorithms.dcfinder.predicates.sets.PredicateSetFactory;
 
 public class MinimalCoverCandidate {
-
+	public static long counter=0,counterOps=0;
 	final IEvidenceSet evidenceSet;
 	final Collection<Predicate> addablePredicates;
 	final Closure closure;
@@ -57,7 +57,7 @@ public class MinimalCoverCandidate {
 	}
 
 	public void searchMinimalCovers(ISubsetBackend mC, BitSetTranslator translator, NTreeSearch priorDCs) {
-
+		counter+=1;
 		long tpCounts = getTpCounts(evidenceSet);
 
 		if (tpCounts <= violationsThreshold) {
@@ -145,9 +145,11 @@ public class MinimalCoverCandidate {
 		IBitSet addables = PredicateSetFactory.create(addablePredicates).getBitset();
 		Iterator<PredicateSet> iter = evidenceSet.iterator();
 		int addIndex = PredicateSet.getIndex(add);
+		
 		while (iter.hasNext()) {
 			PredicateSet pSet = iter.next();
 			IBitSet bs = pSet.getBitset();
+			counterOps+=1;
 			if (bs.get(addIndex)) {
 
 				if (addables.isSubSetOf(bs)) {

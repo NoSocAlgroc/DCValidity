@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import ch.javasoft.bitset.search.NTreeSearch;
 import de.metanome.algorithms.dcfinder.DCFinder;
 import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraint;
 import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
@@ -10,6 +11,7 @@ import de.metanome.algorithms.dcfinder.input.DefaultFileInputGenerator;
 import de.metanome.algorithms.dcfinder.input.Input;
 import de.metanome.algorithms.dcfinder.predicates.PredicateBuilder;
 
+import de.metanome.algorithms.dcfinder.setcover.partial.MinimalCoverCandidate;
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -25,6 +27,9 @@ public class Main {
         PredicateBuilder predicateBuilder = new PredicateBuilder(input,true, 0.3d);
         DenialConstraintSet dcs = dcFinder.run(input, predicateBuilder,threshold);
         System.out.println();
+        System.out.println("Nodes visited: "+Long.toString(MinimalCoverCandidate.counter));
+        System.out.println("EviSet reads: "+Long.toString(MinimalCoverCandidate.counterOps));
+
         fgen.close();
 
         // Specify the file path
