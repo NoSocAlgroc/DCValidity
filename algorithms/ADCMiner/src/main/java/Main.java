@@ -6,8 +6,9 @@ import de.metanome.algorithms.dcfinder.DCFinder;
 import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraint;
 import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
 
+import approxcover.ApproxCoverTraverser;
 public class Main  {
-
+    
     public static void main(String[] args) {
         String fp = args[0];
         double threshold = Double.parseDouble(args[1]);
@@ -18,7 +19,8 @@ public class Main  {
         DCFinder dcfinder = new DCFinder(threshold, singleColumn);
         DenialConstraintSet dcs=dcfinder.run(fp, rowLimit);
         System.out.println();
-
+        System.out.println("Nodes visited: "+Long.toString(ApproxCoverTraverser.counter));
+        System.out.println("EviSet reads: "+Long.toString(ApproxCoverTraverser.counterOps));
         // Specify the file path
         String filePath = "output.txt";
 
