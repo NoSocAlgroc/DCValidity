@@ -1,0 +1,3 @@
+¬(t0.Education-num(Integer) == t1.Education-num(Integer) ^ t0.education(String) <> t1.education(String))
+¬(t0.capital-loss(Double) > t1.capital-loss(Double) ^ t0.capital-gain(Double) > t1.capital-gain(Double))
+¬(t0.capital-loss(Double) < t1.capital-loss(Double) ^ t0.capital-gain(Double) < t1.capital-gain(Double))
