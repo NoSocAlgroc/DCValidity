@@ -1,8 +1,4 @@
-¬(t0.subbrand_name(String) <> t1.subbrand_name(String))
-¬(t0.market_country(String) <> t1.market_country(String))
 ¬(t0.fdc_id(Integer) == t1.fdc_id(Integer))
-¬(t0.household_serving_fulltext(String) <> t1.household_serving_fulltext(String))
-¬(t0.not_a_significant_source_of(String) <> t1.not_a_significant_source_of(String))
 ¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer))
 ¬(t0.brand_name(String) <> t1.brand_name(String) ^ t0.modified_date(String) == t1.modified_date(String))
 ¬(t0.available_date(String) <> t1.available_date(String) ^ t0.package_weight(String) == t1.package_weight(String))
