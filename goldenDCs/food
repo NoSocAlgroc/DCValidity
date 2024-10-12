@@ -9,8 +9,6 @@
 ¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer) ^ t0.data_source(String) == t1.data_source(String))
 ¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer) ^ t0.serving_size(Double) <> t1.serving_size(Double))
 ¬(t0.ingredients(String) == t1.ingredients(String) ^ t0.data_source(String) <> t1.data_source(String))
-¬(t0.serving_size(Double) > t1.serving_size(Double) ^ t0.fdc_id(Integer) <= t1.fdc_id(Integer) ^ t0.brand_owner(String) == t1.brand_owner(String) ^ t0.data_source(String) <> t1.data_source(String))
-¬(t0.serving_size(Double) < t1.serving_size(Double) ^ t0.fdc_id(Integer) >= t1.fdc_id(Integer) ^ t0.brand_owner(String) == t1.brand_owner(String) ^ t0.data_source(String) <> t1.data_source(String))
 ¬(t0.branded_food_category(String) == t1.branded_food_category(String) ^ t0.data_source(String) <> t1.data_source(String))
 ¬(t0.data_source(String) <> t1.data_source(String) ^ t0.ingredients(String) == t1.ingredients(String))
 ¬(t0.data_source(String) <> t1.data_source(String) ^ t0.branded_food_category(String) == t1.branded_food_category(String))
