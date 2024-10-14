@@ -1,4 +1,3 @@
-¬(t0.c1(String) <> t1.c1(String))
 ¬(t0.c91(String) == t1.c91(String))
 ¬(t0.c13(String) == t1.c13(String) ^ t0.c14(String) <> t1.c14(String))
 ¬(t0.c14(String) == t1.c14(String) ^ t0.c13(String) <> t1.c13(String))
