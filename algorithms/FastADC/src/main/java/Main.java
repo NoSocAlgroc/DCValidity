@@ -20,8 +20,6 @@ public class Main {
         FastADC fastADC = new FastADC(singleColumn, threshold, shardLength, linear);
         DenialConstraintSet dcs = fastADC.buildApproxDCs(fp, rowLimit);
         System.out.println();
-        System.out.println("Nodes visited: "+Long.toString(ApproxEvidenceInverter.counter));
-        System.out.println("EviSet reads: "+Long.toString(ApproxEvidenceInverter.counterOps));
         
 
         // Specify the file path

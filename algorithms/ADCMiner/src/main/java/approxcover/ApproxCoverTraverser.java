@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 
 public class ApproxCoverTraverser {
-    public static long counter=0,counterOps=0;
     private final long minCoverTarget;
 
     private List<HyperEdge> edges;
@@ -40,7 +39,6 @@ public class ApproxCoverTraverser {
     }
 
     private void walkDown(Collection<ApproxCoverNode> newCoverNodes, ApproxCoverNode nd) {
-        counter+=1;
         if (nd.isApproxCover() && nd.isMinimal()) {
             nd.addTo(newCoverNodes);
             return;
@@ -61,7 +59,6 @@ public class ApproxCoverTraverser {
         int addV=0;
         for (addV = verticesToAdd.nextSetBit(0); addV >= 0; addV = verticesToAdd.nextSetBit(addV + 1)) {
             ApproxCoverNode child2 = nd.getHitChild(addV, child2Cand);
-            counterOps+=1;
             if (child2 != null) {    // child2 is null if it's not minimal
                 walkDown(newCoverNodes, child2);
                 child2Cand.set(addV);

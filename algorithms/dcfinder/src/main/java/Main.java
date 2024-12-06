@@ -27,8 +27,6 @@ public class Main {
         PredicateBuilder predicateBuilder = new PredicateBuilder(input,true, 0.3d);
         DenialConstraintSet dcs = dcFinder.run(input, predicateBuilder,threshold);
         System.out.println();
-        System.out.println("Nodes visited: "+Long.toString(MinimalCoverCandidate.counter));
-        System.out.println("EviSet reads: "+Long.toString(MinimalCoverCandidate.counterOps));
 
         fgen.close();
 

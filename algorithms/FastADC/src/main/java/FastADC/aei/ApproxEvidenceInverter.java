@@ -10,8 +10,6 @@ import de.metanome.algorithms.dcfinder.denialconstraints.DenialConstraintSet;
 import java.util.*;
 
 public class ApproxEvidenceInverter {
-
-    public static long counter=0,counterOps=0;
     private final int nPredicates;
     private LongBitSet[] mutexMap;   // i -> predicates concerning the same attribute pair with predicate i
     private Evidence[] evidences;
@@ -80,9 +78,7 @@ public class ApproxEvidenceInverter {
     }
 
     void walk(int e, LongBitSet addablePredicates, LongBitSetTrie dcCandidates, long target, Stack<SearchNode> nodes, String status) {
-        counter+=1;
         while (e < evidences.length && !dcCandidates.isEmpty()) {
-            counterOps+=1;
             LongBitSet evi = evidences[e].bitset;
             Collection<DCCandidate> unhitEviDCs = dcCandidates.getAndRemoveGeneralizations(evi);
 

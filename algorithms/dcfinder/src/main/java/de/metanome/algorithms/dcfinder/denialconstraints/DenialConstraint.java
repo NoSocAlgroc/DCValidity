@@ -208,7 +208,7 @@ public class DenialConstraint {
 		}
 		
 		
-		return new de.metanome.algorithm_integration.results.DenialConstraint(predicates, support, wsupport, confidence, cosine, coverage, violations);
+		return new de.metanome.algorithm_integration.results.DenialConstraint(predicates);
 	}
 
 }

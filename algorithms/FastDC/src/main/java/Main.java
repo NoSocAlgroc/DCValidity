@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         String fp = args[0];
-        double threshold = Double.parseDouble(args[1]);//Unused for hydra
+        double threshold = Double.parseDouble(args[1]);//Unused for FastDC
         int rowLimit = Integer.parseInt(args[2]);       
         
         FastDC fastADC = new FastDC();
@@ -26,8 +26,6 @@ public class Main {
         PredicateBuilder predicateBuilder = new PredicateBuilder(input);
         DenialConstraintSet dcs = fastADC.run(input, predicateBuilder);
         System.out.println();
-        System.out.println("Nodes visited: "+Long.toString(MinimalCoverCandidate.counter));
-        System.out.println("EviSet reads: "+Long.toString(MinimalCoverCandidate.counterOps));
 
         fgen.close();
 

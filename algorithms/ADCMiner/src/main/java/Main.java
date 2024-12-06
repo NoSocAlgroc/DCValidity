@@ -19,8 +19,7 @@ public class Main  {
         DCFinder dcfinder = new DCFinder(threshold, singleColumn);
         DenialConstraintSet dcs=dcfinder.run(fp, rowLimit);
         System.out.println();
-        System.out.println("Nodes visited: "+Long.toString(ApproxCoverTraverser.counter));
-        System.out.println("EviSet reads: "+Long.toString(ApproxCoverTraverser.counterOps));
+
         // Specify the file path
         String filePath = "output.txt";
 
