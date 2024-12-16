@@ -1,2 +1,0 @@
-¬(t0.Date(String) == t1.Date(String) ^ t0.Ticker(String) == t1.Ticker(String))
-¬(t0.Ticker(String) == t1.Ticker(String) ^ t0.Date(String) == t1.Date(String))
