@@ -1,4 +1,4 @@
-This repository contains the code for the paper "How and Why are We Discovering False Denial Constraints".
+This repository contains the code for the paper "How and Why are we Discovering False Denial Constraints".
 
 --------------------
 
@@ -86,7 +86,7 @@ This stage uses the compiled algorithms to generate the data necessary for the e
 
 There are five distinct experiments, building upon each other but in separate code blocks. The results of each are packaged along with the repository in the ```results/``` directory, so each step is optional:
 
-* **Discovering DCs**: This step executes the compiled algorithms with multiple comfigurations and stores the results
+* **Discovering DCs**: This step executes the compiled algorithms with multiple configurations and stores the results.
 * **Computing DC satisfactions**: This step computes the satisfaction of each discovered DC, as well as several of their subsets (for the experiments, not for the plots. More details in the code).
 * **Computing node satisfactions**: This step computes the satisfaction of all sets of predicates below a certain size.
 * **Discovering all atomic (sound) sets of predicates**: This step computes all predicate sets with statistically significant atomicity (provably sound DCs).
