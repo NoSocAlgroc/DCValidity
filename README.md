@@ -1,4 +1,4 @@
-This repository contains the code for the paper "How and Why are we Discovering False Denial Constraints".
+This repository contains the code for the paper "How and Why False Denial Constraints are Discovered".
 
 --------------------
 
