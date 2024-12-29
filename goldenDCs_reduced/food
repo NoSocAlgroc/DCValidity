@@ -6,8 +6,6 @@
 ¬(t0.package_weight(String) <> t1.package_weight(String))
 ¬(t0.available_date(String) <> t1.available_date(String))
 ¬(t0.market_country(String) <> t1.market_country(String))
-¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer) ^ t0.serving_size(Double) > t1.serving_size(Double))
-¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer) ^ t0.serving_size(Double) < t1.serving_size(Double))
 ¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer) ^ t0.data_source(String) == t1.data_source(String))
 ¬(t0.gtin_upc(Integer) == t1.gtin_upc(Integer) ^ t0.serving_size(Double) <> t1.serving_size(Double))
 ¬(t0.ingredients(String) == t1.ingredients(String) ^ t0.data_source(String) <> t1.data_source(String))

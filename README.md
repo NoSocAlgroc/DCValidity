@@ -8,8 +8,10 @@ This repository contains the code for the paper "How and Why are we Discovering 
 * ```algorithms/```: Contains the source codes of the algorithms, modified to accept a common input format. 
 * ```datasets/```: Contains the raw .csv data files. 
 * ```goldenDCs/```: Contains the sets of golden DCs for each dataset generated manually by domain experts. 
+* ```goldenDCs_reduced/```: Contains the golden DCs reduced by logical implication. 
 * ```results/```: Saved intermediate results of the experiments. More details below. 
 * ```soundDCs/```: Contains the sets of sound DCs for each dataset discovered with our method. 
+* ```soundDCs_reduced/```: Contains the sound DCs reduced by logical implication. 
 * ```results.ipynb```: Jupyter notebook containing all code with the experiments and notes to reproduce the results. 
 --------------------
 
