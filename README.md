@@ -83,6 +83,7 @@ This stage uses the compiled algorithms to generate the data necessary for the e
 
 #### Dependencies
 * Python 3.9 or above
+* Unix/WSL
 
 #### Execution
 
